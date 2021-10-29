@@ -6,11 +6,12 @@ swl=($swl_names)
 bag_names=$(ls *.bag)
 
 #ask which folder to move data in terminal
-# read -p "Please Enter Path: " path
-path=/automount_home_students/snagulavancha/Desktop/data_directory
+read -p "Please Enter target directory Path: " path
+
 
 # creating folders
-for i in "${swl[@]}";do
+for i in "${swl[@]}";
+do
   echo "$i"
   current_folder=${i%.*}
   DIR="$path""/"$current_folder
@@ -44,10 +45,13 @@ for i in "${swl[@]}";do
     else
       echo "no matching bag file found for $currentfolder";
     fi
+    echo "changing the file name tag in the $current_folder"
+
+    find "$path""/"$current_folder -name "*.json" -exec sed -i -e "s|foldername|$current_folder|g" {} \;
+
     echo "$current_folder succesfull"
   fi
 done
-
 
 
 
