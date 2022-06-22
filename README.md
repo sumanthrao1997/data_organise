@@ -6,4 +6,5 @@ Reconstruct all the point clouds in a given datset using poison reconstruction
 check config json file, for all the folders in the datset, and come up with an estimate of useable and non useable
 ## get ply
 form the entire datset only copy, .ply and .npz files in their respective folders
-
+## rotation augmentation
+Given the datset, rotate the ground truth point cloud and the sdf files and also save the roataion matrix
